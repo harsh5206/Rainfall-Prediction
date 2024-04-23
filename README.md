@@ -1,44 +1,35 @@
-#Rain in Australia: Using meteorlogical data to predict Rainfall
+# Rainfall Prediction in Australia
 
-#Introduction
-Rainfall is a significant meteorological event that can affect local agriculture, transportation, water control, and more. It may be even more consequential for areas that experience relatively less rainfall than the rest of the world, such as cities and towns in Australia. The ability to accurately forecast rainfall could provide useful information to local government and industry, especially in a world feeling the effects of climate change.
+## Introduction
+Rainfall prediction is a crucial aspect of meteorology, impacting various sectors such as agriculture, transportation, and water management. This project aims to predict whether a location in Australia will experience rain tomorrow based on meteorological data. Accurate forecasting can provide valuable insights to local governments and industries, particularly in regions with low rainfall like Australia.
 
-The study will enable us to predict whether or not a location in Australia will experience rain tomorrow using the weather observation data. Given a set of features, we want to predict the target variable RainTomorrow as, 1 which shows either it will rain the next day or 0 which shows it will not rain the next day.
+## Technology/Datasets
+- **Python Libraries**: Pandas, Requests, Seaborn, Matplotlib, Scikit-learn, Warnings, SciPy
+- **Dataset**: "Rain in Australia"
+  - Features: 23
+  - Observations: 145,460
+  - Includes parameters like temperature, rainfall, wind speed, humidity, and pressure.
 
-#Technology/Datasets
-For this study, we utilized the following Python libraries and datasets.
+## Models Evaluated
+- Logistic Regression
+- K-Nearest Neighbors
+- Decision Tree
+- AdaBoost
+- Bagging Classifier
+- Support Vector Machine (SVM)
+- Random Forest
+- Multilayer Perceptron
 
-Pandas
-Requests
-Seaborn
-Matplotlib
-Scikit-learn
-Warnings
-SciPy
-Rain in Australia
-Dataset Description
-The dataset has 23 features with 145460 observations. The features in the dataset are as follows:
+## Evaluation Metrics
+- **Accuracy**: Overall correctness of predictions.
+- **Precision**: Proportion of true positive predictions among all positive predictions.
+- **Recall**: Proportion of true positive predictions among all actual positive instances.
+- **F1-score**: Harmonic mean of precision and recall.
+- **AUC-ROC score**: Ability to distinguish between positive and negative instances.
 
-Date: The date of observation.
-Location: The location of the weather station where the observation was recorded.
-MinTemp: The minimum temperature in degrees celsius.
-MaxTemp: The maximum temperature in degrees celsius.
-rainfall: The amount of rainfall recorded for the day in mm.
-Evaporation: The pan evaporation (mm) in the 24 hours to 9am.
-Sunshine: The number of hours of bright sunshine in the day.
-WindGustDir: The direction of the strongest wind gust in the 24 hours to midnight.
-WindGustSpeed: Speed (km/h) of the strongest wind gust in the 24 hours to midnight.
-WindDir9am: Direction of the wind at 9am.
-WindDir3pm: Direction of the wind at 3pm.
-WindSpeed9am: Wind speed (km/hr) averaged over 10 minutes prior to 9am.
-WindSpeed3pm: Wind speed (km/hr) averaged over 10 minutes prior to 3pm.
-Humidity9am: Humidity (percent) at 9am.
-Humidity3pm: Humidity (percent) at 3pm.
-Pressure9am: Atmospheric pressure (hpa) reduced to mean sea level at 9am.
-Pressure3pm: Atmospheric pressure (hpa) reduced to mean sea level at 3pm.
-Cloud9am: Fraction of sky obscured by cloud at 9am.
-Cloud3pm: TFraction of sky obscured by cloud (in "oktas": eighths) at 3pm.
-Temp9am: Temperature (degrees C) at 9am.
-Temp3pm: Temperature (degrees C) at 3pm.
-RainToday: Boolean: 1 if precipitation (mm) in the 24 hours to 9am exceeds 1mm, otherwise 0.
-RainTomorrow: Yes if the rain for that day was 1mm or more, otherwise No.
+## Analysis
+- **Key Features**: Humidity3PM and WindGustSpeed were consistently important across models.
+- **Best Model**: Logistic Regression performed best, prioritizing recall due to the high cost of false negatives in predicting rainfall.
+
+## Conclusion
+Given the importance of recall and AUC-ROC score in predicting rainfall, Logistic Regression emerges as the best model. However, further refinements like hyperparameter tuning and feature engineering could potentially enhance model performance.
